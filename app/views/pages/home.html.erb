@@ -2,3 +2,5 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <h3>coucou</h3>
+
+<%= link_to "log_out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
