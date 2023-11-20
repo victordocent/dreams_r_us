@@ -1,0 +1,14 @@
+<h1>My dreams </h1>
+
+<ul>
+<% @dreams.each do |dream|%>
+<li> <%= dream.title %>
+<%= dream.price %>
+<%= dream.description %>
+<%= dream.availability %>
+<%= dream.category %>
+</li>
+<%end%>
+</ul>
+
+<%= link_to "new dream", new_dream_path%>
