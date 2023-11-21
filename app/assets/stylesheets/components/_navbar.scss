@@ -1,12 +1,116 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar_perso {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--purple);
+  max-width: 100%;
+  position: relative;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar_perso .log-in {
+  grid-area: 1 / 3 / 2 / 4; /* Align to the third column */
+  background-color: var(--blue);
+  border-radius: 40px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar_perso .line,
+.navbar_perso .img,
+.navbar_perso .line-2 {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  left: 26px;
+}
+
+.navbar_perso .line {
+  top: 16px;
+}
+
+.navbar_perso .img {
+  top: 29px;
+}
+
+.navbar_perso .line-2 {
+  top: 42px;
+}
+
+.navbar_perso .frame {
+  position: absolute;
+  width: 32px;
+  height: 34px;
+  top: 13px;
+  left: 68px;
+}
+
+.navbar_perso .overlap-group {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  left: 2px;
+  background-color: var(--neutral-07);
+  border-radius: 17px;
+}
+
+.navbar_perso .mask-group {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 3px;
+  left: 3px;
+}
+
+.navbar_perso .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar_perso .logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar_perso .logo-png {
+  width: 85px;
+  height: auto;
+  object-fit: cover;
+}
+
+.navbar_perso .text-wrapper {
+  font-family: "Inter-Light", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.navbar_perso .group {
+  grid-area: 1 / 1 / 2 / 3; /* Align to the first and second columns */
+  width: 100%;
+}
+
+.navbar_perso .overlap {
+  width: 100%;
+  background-color: var(--pink);
+  border-radius: 40px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.navbar_perso .div {
+  position: absolute;
+  width: 80%; /* Adjust the width as needed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Inter-Light", Helvetica;
+  font-weight: 300;
+  color: #dddddd;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
 }
