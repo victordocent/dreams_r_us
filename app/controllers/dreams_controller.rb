@@ -43,5 +43,4 @@ class DreamsController < ApplicationController
   def find_dream
     @dream = Dream.find(params[:id])
   end
-
 end
