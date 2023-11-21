@@ -1,0 +1,9 @@
+<%= simple_form_for @dream do |f| %>
+    <%= f.input :title %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :availability %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.input :category %>
+    <%= f.button :submit %>
+  <% end %>
