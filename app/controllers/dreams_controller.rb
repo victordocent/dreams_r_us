@@ -1,13 +1,13 @@
 class DreamsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :index
+  before_action :find_dream, only: [:show, :edit, :update, :destroy]
 
   def index
     @dreams = Dream.all
   end
 
   def show
-    @dream = Dream.find(params[:id])
   end
 
   def new
@@ -24,9 +24,25 @@ class DreamsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @dream.update(dream_params)
+  end
+
+  def destroy
+    @dream.destroy
+    redirect_to root_path status: :see_other
+  end
+
   private
   def dream_params
-    params.require(:dream).permit(:title, :price, :availability, :photos, :description)
+    params.require(:dream).permit(:title, :price, :availability, :photos, :description, :category)
+  end
+
+  def find_dream
+    @dream = Dream.find(params[:id])
   end
 
 end
