@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <div>
-    <a class="navbar-brand">Logo</a>
+    <a class="navbar-brand"><%=link_to "Logo", root_path%></a>
     </div>
     <div>
       <form class="d-flex" role="search">
@@ -10,7 +10,7 @@
       </form>
     </div>
     <div>
-      <a class="navbar-brand">Login</a>
+      <a class="navbar-brand"><%=link_to "Login", new_user_session_path%></a>
     </div>
   </div>
 </nav>
