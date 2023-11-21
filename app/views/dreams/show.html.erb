@@ -1,7 +1,3 @@
-<%# Exmaple of commande with cloudinary %>
+Welcome to the dream <%= @dream.title %>
 
-<%# @dreams.each do |dream| %>
-
-  <%#= cl_image_tag(dream.photo.key, class: "your_class", alt: dream.title) %>
-
-<%#=end %>
+<%= link_to "Make a booking for this dream", new_dream_booking_path(@dream) %>

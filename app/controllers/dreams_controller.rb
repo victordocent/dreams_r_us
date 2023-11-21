@@ -1,5 +1,4 @@
 class DreamsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: :index
   before_action :find_dream, only: [:show, :edit, :update, :destroy]
 
@@ -44,5 +43,4 @@ class DreamsController < ApplicationController
   def find_dream
     @dream = Dream.find(params[:id])
   end
-
 end
