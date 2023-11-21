@@ -1,14 +1,15 @@
-<h1>My dreams </h1>
+<div>
+  <div>
+    <% @dreams.each do |dream|%>
+        <div class="card mb-3">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to dream.title, dream_path(dream)%></h5>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
 
-<ul>
-<% @dreams.each do |dream|%>
-<li> <%= dream.title %>
-<%= dream.price %>
-<%= dream.description %>
-<%= dream.availability %>
-<%= dream.category %>
-</li>
-<%end%>
-</ul>
-
-<%= link_to "new dream", new_dream_path%>
+<button type="button" class="btn btn-dark"><%= link_to "new dream", new_dream_path%></button>
