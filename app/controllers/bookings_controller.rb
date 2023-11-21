@@ -2,6 +2,11 @@ class BookingsController < ApplicationController
   before_action :find, only: %i[show destroy]
   before_action :find_dream, only: %i[new create]
 
+  def index
+    user = current_user.id
+    @bookings = Booking.where(:user_id => user)
+  end
+
   def show; end
 
   def new
@@ -13,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.dream = @dream
     if @booking.save
-      redirect_to dream_booking_path(@dream, @booking)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -21,7 +26,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to root
+    redirect_to root, status: :see_other
   end
 
   private
