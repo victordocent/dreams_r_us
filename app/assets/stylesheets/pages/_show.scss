@@ -1,5 +1,5 @@
 #left_image {
-  width: 566px;
+  width: 650px;
   height: 417px;
   flex-shrink: 0;
   border-radius: 25px 0px 0px 25px;
@@ -32,19 +32,6 @@
 #dream-photos-row {
   margin-right: calc(-1.5 * var(--bs-gutter-x));
   margin-left: calc(-1.5 * var(--bs-gutter-x));
-}
-
-
-#see-more {
-  width: 196px;
-  padding: 14px 0px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Shade-02, #222);
-  position: absolute;
-  top: 479px;
-  right: 84px;
 }
 
 #price-info {
