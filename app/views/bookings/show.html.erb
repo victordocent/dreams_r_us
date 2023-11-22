@@ -1,14 +1,17 @@
-<h2> Thanks for this booking! </h2>
+<title>Booking Confirmation</title>
+</head>
+<body class="bg-light">
 
-<% start_date_formatted = @booking.start_date.strftime("%A, %b %d") %>
-<% end_date_formatted = @booking.end_date.strftime("%A, %b %d") %>
+<div class="container mt-5 text-center">
+  <h2 class="text-success">Thanks for this booking!</h2>
 
-<h2>You have booked your dream from <%= start_date_formatted %> to <%= end_date_formatted %></h2>
+  <% start_date_formatted = @booking.start_date.strftime("%A, %b %d") %>
+  <% end_date_formatted = @booking.end_date.strftime("%A, %b %d") %>
 
+  <h2 class="mt-4">You have booked your dream from <%= start_date_formatted %> to <%= end_date_formatted %></h2>
 
-<%= link_to "Edit your booking", edit_booking_path(@booking) %>
-
-<%= link_to "Delete", booking_path(@booking),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-  class: "btn btn-primary text-decoration-none"
-%>
+  <div class="mt-4">
+    <%= link_to "Edit your booking", edit_booking_path(@booking), class: "btn btn-primary mr-2" %>
+    <%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  </div>
+</div>
