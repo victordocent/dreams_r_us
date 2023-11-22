@@ -14,7 +14,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    # "We extracted start and end date from the range"
+    options= {}
+    dates = booking_params[:start_date].split(" to ")
+    date_start= dates[0]
+    date_end= dates[1]
+    params= {start_date: date_start, end_date: date_end}
+    @booking = Booking.new(params)
     @booking.user = current_user
     @booking.dream = @dream
     if @booking.save
