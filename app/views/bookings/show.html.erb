@@ -1,4 +1,9 @@
-Thanks for this booking
-<%= @booking.start_date %>
+<h2> Thanks for this booking! </h2>
+
+<% start_date_formatted = @booking.start_date.strftime("%A, %b %d") %>
+<% end_date_formatted = @booking.end_date.strftime("%A, %b %d") %>
+
+<h2>You have booked your dream from <%= start_date_formatted %> to <%= end_date_formatted %></h2>
+
 
 <%= link_to "Edit your booking", edit_booking_path(@booking) %>
