@@ -33,6 +33,7 @@
           <em>This dream has already been booked <strong><%= @dream.bookings.count %></strong> !</em>
         <% end %>
       </p>
+      <%= link_to "Delete", dream_path(@dream), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, id: "delete-button", class: "btn btn-primary text-decoration-none"%>
     </div>
     <div id="price-info" class="col-6 mt-3 mx-auto text-center">
       <% if @dream.availability %>

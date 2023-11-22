@@ -51,3 +51,12 @@
   background: var(--Gradient-02, radial-gradient(1413.54% 103.95% at -3.95% 100%, #D33753 0%, #D13660 52.83%, #C72D65 100%));
   color: #DDD;
 }
+
+#delete-button {
+  display: inline-flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #DDD;
+}
