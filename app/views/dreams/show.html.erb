@@ -1,8 +1,50 @@
-Welcome to the dream <%= @dream.title %>
+<div class="container">
+  <h1><strong><%= @dream.title %></strong></h1>
+  <div id="dream_photos" class="my-3">
+    <div class="row" id="dream-photos-row">
+      <div class="col-6 gx-5">
+        <img id="left_image" src="https://images.unsplash.com/photo-1560837616-fee1f3d8753a?q=80&w=578&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+      <div class="col-3 gx-5">
+        <div class="row">
+          <img class="middle_image" src="https://images.unsplash.com/photo-1570050785780-3c79854c7813?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+          <img class="middle_image mt-3" src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <img id="right_top_image" src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+          <img class="mt-3" id="right_bottom_image" src="https://images.unsplash.com/photo-1569775931713-52512a1f1b96?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+      </div>
+    </div>
+    <%= render "shared/modal_dream_show" %>
+  </div>
 
-<%= link_to "Make a booking for this dream", new_dream_booking_path(@dream) %>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <h3><%= @dream.user.email[/^(.+)@/, 1].capitalize %> is happy to propose you this dream !</h3>
 
-<%= link_to "Delete", dream_path(@dream),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-  class: "btn btn-primary text-decoration-none"
-%>
+      <p>
+        <%= @dream.description %>
+      </p>
+      <p>
+        <% if @dream.bookings.count > 0 %>
+          <em>This dream has already been booked <strong><%= @dream.bookings.count %></strong> !</em>
+        <% end %>
+      </p>
+      <%= link_to "Delete", dream_path(@dream), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, id: "delete-button", class: "btn btn-primary text-decoration-none"%>
+    </div>
+    <div id="price-info" class="col-6 mt-3 mx-auto text-center">
+      <% if @dream.availability %>
+        <div class="mt-5">
+          The price of this dream is <%= @dream.price %>€ per day of booking ! <br><br>
+          This dream is currently available ! <br><br>
+        </div>
+        <%= link_to "Book it!", new_dream_booking_path(@dream), id: "booking-button", class: "btn text-decoration-none" %>
+      <% else %>
+        Unfortunatelly, we are unable to offer bookings for this dream 😞...
+      <% end %>
+    </div>
+  </div>
+</div>
