@@ -1,0 +1,38 @@
+.search-bar-container {
+  height: 82px;
+  flex-shrink: 0;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  background: var(--pink, #FF416F);
+  border-radius: 40px;
+  padding: 0 10px;
+  flex-grow: 1;
+}
+
+.search-bar {
+  background: none;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  height: 100%;
+  font-size: 16px;
+  color: white; /* Set the text color to white */
+}
+
+.search-bar:focus {
+  background: var(--pink, #FF416F); /* Maintain the background color on focus */
+}
+
+.search-icon-container {
+  margin-right: 10px;
+  cursor: pointer;
+}

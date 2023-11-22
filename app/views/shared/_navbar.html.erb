@@ -1,16 +1,51 @@
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar bg-light custom-navbar">
   <div class="container-fluid">
     <div>
-    <a class="navbar-brand"><%=link_to "Logo", root_path%></a>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= cl_image_tag("logo-png_iqwkcu", crop: :fill) %>
+      <% end %>
     </div>
-    <div>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-    <div>
-      <a class="navbar-brand"><%=link_to "Login", new_user_session_path%></a>
-    </div>
+
+  <div class="search-bar-container">
+    <form class="search-form">
+      <div class="search-input-container">
+        <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
+        <div class="search-icon-container" onclick="submitSearch()">
+          <%= cl_image_tag("search-magnifying-glass_rnz6be", crop: :fill, width: 20, height: 20) %>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<script>
+  function submitSearch() {
+    document.querySelector('.search-form').submit();
+  }
+</script>
+
+
+
+
+     <div class="nav-item dropdown">
+      <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <div class="lines">
+          <%= cl_image_tag("line_22_bwcwxp", crop: :fill, class: "line") %>
+          <%= cl_image_tag("line_22_bwcwxp", crop: :fill, class: "line") %>
+          <%= cl_image_tag("line_22_bwcwxp", crop: :fill, class: "line") %>
+        </div>
+         <div class="frame">
+        <div class="overlap-group"><%= cl_image_tag("Frame_18_ca6izv", crop: :fill) %>
+        </div>
+      </div>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <li><%= link_to "My dreams", bookings_path, class: "dropdown-item" %></li>
+        <li><%= link_to "My profile", edit_user_registration_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+      </ul>
+      </div>
+
+
   </div>
 </nav>
