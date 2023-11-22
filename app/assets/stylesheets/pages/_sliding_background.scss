@@ -1,14 +1,9 @@
-.container {
-  height: 300px;
-  overflow: hidden;
-}
-
 .sliding-background {
   background: url("https://images.unsplash.com/photo-1552288092-76e7d732366c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhbm9yYW1hfGVufDB8fDB8fHww");
   height: 100%;
   width: 5000px;
   z-index: -1;
-  animation: slide 60s linear infinite;
+  animation: slide 30s linear infinite;
 }
 
 @keyframes slide{

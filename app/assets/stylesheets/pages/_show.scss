@@ -32,6 +32,7 @@
 #dream-photos-row {
   margin-right: calc(-1.5 * var(--bs-gutter-x));
   margin-left: calc(-1.5 * var(--bs-gutter-x));
+  position: relative;
 }
 
 #price-info {
@@ -40,6 +41,11 @@
   box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
   border-radius: 12px;
   border: 1px solid var(--Neutral-03, #DDD);
+}
+
+#dream_photos {
+  position: relative;
+  width: auto;
 }
 
 #booking-button {
