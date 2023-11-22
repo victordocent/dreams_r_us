@@ -1,3 +1,8 @@
 Welcome to the dream <%= @dream.title %>
 
 <%= link_to "Make a booking for this dream", new_dream_booking_path(@dream) %>
+
+<%= link_to "Delete", dream_path(@dream),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+  class: "btn btn-primary text-decoration-none"
+%>
