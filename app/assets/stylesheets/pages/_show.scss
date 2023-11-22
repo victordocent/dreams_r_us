@@ -1,0 +1,66 @@
+#left_image {
+  width: 566px;
+  height: 417px;
+  flex-shrink: 0;
+  border-radius: 25px 0px 0px 25px;
+}
+
+.middle_image {
+  width: 385px;
+  height: 200px;
+  flex-shrink: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#right_top_image {
+  width: 385px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 0px 25px 0px 0px;
+  padding-left: 0;
+}
+
+#right_bottom_image {
+  width: 385px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 0px 0px 25px 0px;
+  padding-left: 0;
+}
+
+#dream-photos-row {
+  margin-right: calc(-1.5 * var(--bs-gutter-x));
+  margin-left: calc(-1.5 * var(--bs-gutter-x));
+}
+
+
+#see-more {
+  width: 196px;
+  padding: 14px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Shade-02, #222);
+  position: absolute;
+  top: 479px;
+  right: 84px;
+}
+
+#price-info {
+  width: 520px;
+  height: 240px;
+  box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  border: 1px solid var(--Neutral-03, #DDD);
+}
+
+#booking-button {
+  display: inline-flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--Gradient-02, radial-gradient(1413.54% 103.95% at -3.95% 100%, #D33753 0%, #D13660 52.83%, #C72D65 100%));
+  color: #DDD;
+}
