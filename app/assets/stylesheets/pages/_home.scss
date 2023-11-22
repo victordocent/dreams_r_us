@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+
+@keyframes color {
+    0%   { background: var(--white); }
+    100%  { background: var(--pink); }
+}
+
+// @keyframes color {
+//   0%   { background: var(--blue); }
+//   20%  { background: var(--purple); }
+//   40%  { background: var(--pink); }
+//   60%  { background: var(--neutral); }
+//   80%  { background: var(--grey); }
+//   100% { background: var(--dark-grey); }
+// }
+
+body {
+  background: var(--blue); /* Fallback */
+  animation: color 60s infinite linear;
+}
+
+.absolution {
+  top: 58px;
+}

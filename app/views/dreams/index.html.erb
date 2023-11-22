@@ -1,14 +1,13 @@
-<h1>My dreams </h1>
+<h1 class="m-3">Available dreams </h1>
+
 
 <% @dreams.each do |dream|%>
-  <div class="card mb-3">
-    <%= dream.title %>
-    <% dream.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to dream.title, dream_path(dream)%></h5>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    <%end%>
-
-<button type="button" class="btn btn-dark"><%= link_to "new dream", new_dream_path%></button>
+  <%= link_to dream_path(dream) do%>
+     <div style="height: 150px" class="w-100 my-5 position-relative shadow-sm">
+        <h2 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-3"> <%= dream.title %></h2>
+        <div class="position-absolute sliding-background"></div>
+    </div>
+    <br>
+  <% end %>
+<%end%>
+<%= link_to "new dream", new_dream_path, class: "m-5 btn btn-light text-decoration-none dream_text_effect text-white ms-5"%>
