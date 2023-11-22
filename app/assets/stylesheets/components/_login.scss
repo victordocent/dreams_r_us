@@ -1,0 +1,27 @@
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: var(--blue, #3F37C9);
+  box-sizing: border-box;
+  padding: 10px; /* Adjust padding as needed */
+}
+.lines {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.lines img {
+  margin-bottom: 5px; /* Adjust the margin to add space between the bars */
+}
+.frame {
+  flex-grow: 1; /* This will make the overlap-group take the remaining space */
+}
+.overlap-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+}
