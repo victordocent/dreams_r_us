@@ -1,7 +1,26 @@
-<div class="container">
-  <h1>Here are all your bookings</h1>
+<div class="container mt-5">
+  <h1 class="text-center">All your bookings</h1>
 
   <% @bookings.each do |booking| %>
-    <%= booking.id %>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Dream</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= booking.dream.title %></td>
+              <td><%= booking.start_date.strftime("%A, %b %d") %></td>
+              <td><%= booking.end_date.strftime("%A, %b %d") %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   <% end %>
 </div>
