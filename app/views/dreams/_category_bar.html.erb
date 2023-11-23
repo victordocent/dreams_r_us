@@ -1,22 +1,23 @@
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <div>
-    <a class="navbar-brand"><%=link_to "Logo", root_path%></a>
-    </div>
-    <div>
-      <form class="d-flex" >
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-    <div>
+<div class="category_bar">
+  <div class="container">
 
+
+     <div class="more">
+      <%=Book.category.each do |category|%>
+      <%= link_to dreams_path(category) do%>
+        <div class="categories+icon">
+          <div class="icon">
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class ="label">
+            <%=category%>
+          </div>
+        </div>
+      <%end%>
+      <button>
+      </button>
+    </div>
+    <div class = "filtres" btn.....>
     </div>
   </div>
-</nav>
-
-
-
-
-
-dream.category
-end
+</div>
