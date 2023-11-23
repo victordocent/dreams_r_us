@@ -1,0 +1,33 @@
+<table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dream name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @dreams.each_with_index do |dream, index| %>
+        <% if index % 2 === 0  %>
+          <tr class="table-warning">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= link_to dream.title, dream_path(dream), class: "hover-link-1" %></td>
+            <td><%= number_with_delimiter(dream.price.to_i, delimiter: ' ') %>€</td>
+            <td><%= dream.category %></td>
+            <td><%= dream.description %></td>
+          </tr>
+        <% else %>
+          <tr class="table-danger">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= link_to dream.title, dream_path(dream), class: "hover-link-1" %></td>
+            <td><%= number_with_delimiter(dream.price.to_i, delimiter: ' ') %>€</td>
+            <td><%= dream.category %></td>
+            <td><%= dream.description %></td>
+          </tr>
+        <% end %>
+      <% end %>
+
+      </tbody>
+    </table>

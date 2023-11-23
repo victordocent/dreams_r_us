@@ -1,0 +1,34 @@
+<table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dream name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @dreams.each do |dream| %>
+      <% dream.bookings.each_with_index do |booking, index| %>
+        <% if index % 2 === 0  %>
+          <tr class="table-warning">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= booking %></td>
+          </tr>
+        <% else %>
+          <tr class="table-danger">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= number_with_delimiter(dream.price.to_i, delimiter: ' ') %>€</td>
+            <td><%= dream.category %></td>
+            <td><%= dream.description %></td>
+            <td><%= dream.bookings %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+
+      </tbody>
+    </table>

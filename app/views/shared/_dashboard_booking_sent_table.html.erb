@@ -1,0 +1,39 @@
+<table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dream name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @bookings.each_with_index do |booking, index| %>
+        <% if index % 2 === 0  %>
+          <tr class="table-warning">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= link_to booking.dream.title, dream_booking_path(booking.dream, booking), class: "hover-link-1" %></td>
+            <td><%= number_with_delimiter(booking.dream.price.to_i, delimiter: ' ') %>€</td>
+            <td><%= booking.dream.category %></td>
+            <td><%= booking.dream.description %></td>
+            <td><%= booking.start_date.strftime('%B %e, %Y') %></td>
+            <td><%= booking.end_date.strftime('%B %e, %Y') %></td>
+          </tr>
+        <% else %>
+          <tr class="table-danger">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= link_to booking.dream.title, dream_booking_path(booking.dream, booking), class: "hover-link-1" %></td>
+            <td><%= number_with_delimiter(booking.dream.price.to_i, delimiter: ' ') %>€</td>
+            <td><%= booking.dream.category %></td>
+            <td><%= booking.dream.description %></td>
+            <td><%= booking.start_date.strftime('%B %e, %Y') %></td>
+            <td><%= booking.end_date.strftime('%B %e, %Y') %></td>
+          </tr>
+        <% end %>
+      <% end %>
+
+      </tbody>
+    </table>
