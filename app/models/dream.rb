@@ -4,6 +4,8 @@ class Dream < ApplicationRecord
 
   has_many_attached :photos
 
+  searchkick
+
   validates :price, presence: true
   validates :availability, presence: true
   validates :description, presence: true

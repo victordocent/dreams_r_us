@@ -35,6 +35,11 @@ class DreamsController < ApplicationController
     redirect_to root_path status: :see_other
   end
 
+  def search
+    @results = Dream.search(params[:q])
+    render :index
+  end
+
   private
   def dream_params
     params.require(:dream).permit(:title, :price, :availability, :photos, :description, :category, photos: [])

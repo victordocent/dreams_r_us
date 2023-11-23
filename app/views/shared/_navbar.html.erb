@@ -7,14 +7,14 @@
     </div>
 
   <div class="search-bar-container">
-    <form class="search-form">
+    <%= form_tag(search_dreams_path, method: :get, class: "search-form") do %>
       <div class="search-input-container">
-        <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
-        <div class="search-icon-container" onclick="submitSearch()">
-          <%= image_tag("https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700666823/dfbscoydpmlghxvtzvxv.svg", crop: :fill, width: 20, height: 20) %>
-        </div>
+        <%= text_field_tag :q, params[:q], class: 'form-control me-2 search-bar', placeholder: 'Search', aria_label: 'Search' %>
+      <div class="search-icon-container" onclick="submitSearch()">
+        <%= image_tag("https://res.cloudinary.com/dcvyn1qtm/image/upload/v1700666823/dfbscoydpmlghxvtzvxv.svg", crop: :fill, width: 20, height: 20, class: 'cloudinary-icon') %>
       </div>
-    </form>
+      </div>
+    <% end %>
   </div>
 
 <script>
