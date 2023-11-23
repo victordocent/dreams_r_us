@@ -2,7 +2,9 @@
 
 @keyframes color {
     0%   { background: var(--white); }
-    100%  { background: var(--pink); }
+    40%  { background: var(--pink); }
+    60%  { background: var(--pink); }
+    100%  { background: var(--white); }
 }
 
 // @keyframes color {
@@ -15,8 +17,8 @@
 // }
 
 body {
-  background: var(--blue); /* Fallback */
-  animation: color 60s infinite linear;
+  background: var(--white); /* Fallback */
+  animation: color 100s infinite linear;
 }
 
 .absolution {
