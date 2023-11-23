@@ -1,40 +1,3 @@
-#left_image {
-  width: 650px;
-  height: 417px;
-  flex-shrink: 0;
-  border-radius: 25px 0px 0px 25px;
-}
-
-.middle_image {
-  width: 385px;
-  height: 200px;
-  flex-shrink: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#right_top_image {
-  width: 385px;
-  height: 200px;
-  flex-shrink: 0;
-  border-radius: 0px 25px 0px 0px;
-  padding-left: 0;
-}
-
-#right_bottom_image {
-  width: 385px;
-  height: 200px;
-  flex-shrink: 0;
-  border-radius: 0px 0px 25px 0px;
-  padding-left: 0;
-}
-
-#dream-photos-row {
-  margin-right: calc(-1.5 * var(--bs-gutter-x));
-  margin-left: calc(-1.5 * var(--bs-gutter-x));
-  position: relative;
-}
-
 #price-info {
   width: 520px;
   height: 240px;
@@ -65,4 +28,50 @@
   align-items: center;
   border-radius: 8px;
   color: #DDD;
+}
+
+.parent {
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  position: relative;
+  }
+
+.taille {
+  height: 500px;
+}
+
+.parent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 3 / 5;
+  border-radius: 25px 0px 0px 25px;
+}
+.div2 {
+  grid-area: 1 / 5 / 2 / 7;
+}
+.div3 { grid-area: 2 / 5 / 3 / 7; }
+.div4 {
+  grid-area: 1 / 7 / 2 / 9;
+  border-radius: 0px 25px 0px 0px;
+}
+.div5 {
+  grid-area: 2 / 7 / 3 / 9;
+  border-radius: 0px 0px 25px 0px;
+  position: relative;
+}
+
+.image-div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  // background-size: content;
 }

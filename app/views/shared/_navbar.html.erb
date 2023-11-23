@@ -46,7 +46,13 @@
         <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
       </ul>
       </div>
-
-
   </div>
 </nav>
+
+
+
+<script>
+  function submitSearch() {
+    document.querySelector('.search-form').submit();
+  }
+</script>
