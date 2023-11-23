@@ -3,7 +3,7 @@ class DreamsController < ApplicationController
   before_action :find_dream, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dreams = Dream.all
+    params[:query].present? ? @dreams = Dream.where("category ILIKE ?", "%#{params[:query]}%") : @dreams = Dream.all
   end
 
   def show

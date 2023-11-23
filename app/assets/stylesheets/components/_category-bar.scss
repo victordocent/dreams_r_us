@@ -1,0 +1,44 @@
+// .scrollmenu {
+//   background-color: #f9f5f5;
+//   display:flex;
+//   width:100%;
+//   overflow: auto;
+//   white-space: nowrap;
+// }
+
+// .scrollmenu a {
+//   display: inline-block;
+//   color: white;
+//   text-align: center;
+//   padding: 14px;
+//   text-decoration: none;
+// }
+
+// .scrollmenu a:hover {
+//   background-color: #777;
+// }
+
+
+
+
+.outer-flex {
+  display: flex;
+}
+
+.inner-flex {
+  display: flex;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex__item {
+  // background-color: tomato;
+  color: white;
+  text-decoration: none;
+  justify-content: center;
+  text-align:center;
+  width: auto;
+  margin: 5px;
+  padding: 5px;
+}
