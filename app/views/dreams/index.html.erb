@@ -1,13 +1,25 @@
 <h1 class="m-3">Available dreams </h1>
 
-
-<% @dreams.each do |dream|%>
-  <%= link_to dream_path(dream) do%>
-     <div style="height: 150px" class="w-100 my-5 position-relative shadow-sm">
+<% if @results %>
+  <% @results.each do |dream| %>
+    <%= link_to dream_path(dream) do %>
+      <div style="height: 150px" class="w-100 my-5 position-relative shadow-sm">
         <h2 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-3"> <%= dream.title %></h2>
         <div class="position-absolute sliding-background"></div>
-    </div>
-    <br>
+      </div>
+      <br>
+    <% end %>
   <% end %>
-<%end%>
-<%= link_to "new dream", new_dream_path, class: "m-5 btn btn-light text-decoration-none dream_text_effect text-white ms-5"%>
+<% else %>
+  <% @dreams.each do |dream| %>
+    <%= link_to dream_path(dream) do %>
+      <div style="height: 150px" class="w-100 my-5 position-relative shadow-sm">
+        <h2 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-3"> <%= dream.title %></h2>
+        <div class="position-absolute sliding-background"></div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "new dream", new_dream_path, class: "m-5 btn btn-light text-decoration-none dream_text_effect text-white ms-5" %>
