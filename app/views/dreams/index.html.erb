@@ -3,20 +3,20 @@
 <% if @results %>
   <% @results.each do |dream| %>
     <%= link_to dream_path(dream) do %>
-      <div style="height: 150px" class="w-100 my-5 position-relative shadow-sm">
-        <h2 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-3"> <%= dream.title %></h2>
-        <div class="position-absolute sliding-background"></div>
-      </div>
+     <div style="height: 150px" class="w-100 my-3 position-relative shadow-sm">
+        <h3 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-2"> <%= dream.title %></h2>
+        <div class="position-absolute sliding-background" style="background-image: url('<%= cl_image_path dream.photos[0].key %>')"></div>
+    </div>
       <br>
     <% end %>
   <% end %>
 <% else %>
   <% @dreams.each do |dream| %>
     <%= link_to dream_path(dream) do %>
-      <div style="height: 150px" class="w-100 my-5 position-relative shadow-sm">
-        <h2 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-3"> <%= dream.title %></h2>
-        <div class="position-absolute sliding-background"></div>
-      </div>
+     <div style="height: 150px" class="w-100 my-3 position-relative shadow-sm">
+        <h3 class="z-index-2 position-absolute absolution dream_text_effect text-decoration-none text-white ms-2"> <%= dream.title %></h2>
+        <div class="position-absolute sliding-background" style="background-image: url('<%= cl_image_path dream.photos[0].key %>')"></div>
+    </div>
       <br>
     <% end %>
   <% end %>
