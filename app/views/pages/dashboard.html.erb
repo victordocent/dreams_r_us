@@ -1,7 +1,17 @@
 <div class="container">
-  <h2>Your dreams!</h2>
-  <%= render partial: "shared/dashboard_dream_table", locals: {dreams: @dreams} %>
+    <h2>Bookings made at your dreams !</h2>
+    <%= render partial: "shared/dashboard_booking_received_table", locals: {dreams: @dreams} %>
+  </div>
 
-  <h2>Your bookings!</h2>
-  <%= render partial: "shared/dashboard_booking_table", locals: {bookings: @bookings} %>
+<div class="container">
+  <div class="parent">
+    <div class="div1">
+      <h2>Dreams you created !</h2>
+      <%= render partial: "shared/dashboard_dream_table", locals: {dreams: @dreams} %>
+    </div>
+    <div class="div2">
+      <h2>Bookings you made !</h2>
+      <%= render partial: "shared/dashboard_booking_sent_table", locals: {bookings: @bookings} %>
+    </div>
+  </div>
 </div>

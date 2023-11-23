@@ -15,7 +15,7 @@
         <% if index % 2 === 0  %>
           <tr class="table-warning">
             <th scope="row"><%= index + 1 %></th>
-            <td><%= link_to booking.dream.title, dream_path(booking.dream), class: "hover-link-1" %></td>
+            <td><%= link_to booking.dream.title, dream_booking_path(booking.dream, booking), class: "hover-link-1" %></td>
             <td><%= number_with_delimiter(booking.dream.price.to_i, delimiter: ' ') %>€</td>
             <td><%= booking.dream.category %></td>
             <td><%= booking.dream.description %></td>
@@ -25,7 +25,7 @@
         <% else %>
           <tr class="table-danger">
             <th scope="row"><%= index + 1 %></th>
-            <td><%= link_to booking.dream.title, dream_path(booking.dream), class: "hover-link-1" %></td>
+            <td><%= link_to booking.dream.title, dream_booking_path(booking.dream, booking), class: "hover-link-1" %></td>
             <td><%= number_with_delimiter(booking.dream.price.to_i, delimiter: ' ') %>€</td>
             <td><%= booking.dream.category %></td>
             <td><%= booking.dream.description %></td>
