@@ -37,7 +37,9 @@ users = [user1, user2]
     user: users.sample
   )
 
-  file = URI.open(Faker::LoremFlickr.image(search_terms: [Faker::JapaneseMedia::CowboyBebop.episode].map { |item| item.gsub(' ', '_') }))
-  dream.photos.attach(io: file, filename: "#{Faker::JapaneseMedia::CowboyBebop.episode}.png", content_type: "image/png")
-  dream.save
+  5.times do
+    file = URI.open(Faker::LoremFlickr.image(search_terms: [Faker::JapaneseMedia::CowboyBebop.episode].map { |item| item.gsub(' ', '_') }))
+    dream.photos.attach(io: file, filename: "#{Faker::JapaneseMedia::CowboyBebop.episode}.png", content_type: "image/png")
+    dream.save
+  end
 end
