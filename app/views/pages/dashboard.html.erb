@@ -1,3 +1,3 @@
-<% @dreams.each do |dream| %>
-  <%= dream.title %> <br>
-<% end %>
+<div class="container">
+  <%= render partial: "shared/dashboard_dream_table", locals: {dreams: @dreams} %>
+</div>

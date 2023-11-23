@@ -1,0 +1,33 @@
+<table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dream name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @dreams.each_with_index do |dream, index| %>
+        <% if index % 2 === 0  %>
+          <tr class="table-warning">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= dream.title %></td>
+            <td><%= dream.price %></td>
+            <td><%= dream.category %></td>
+            <td><%= dream.description %></td>
+          </tr>
+        <% else %>
+          <tr class="table-danger">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= dream.title %></td>
+            <td><%= dream.price %></td>
+            <td><%= dream.category %></td>
+            <td><%= dream.description %></td>
+          </tr>
+        <% end %>
+      <% end %>
+
+      </tbody>
+    </table>
