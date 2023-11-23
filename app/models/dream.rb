@@ -11,4 +11,6 @@ class Dream < ApplicationRecord
   validates :description, presence: true
   validates :title, presence: true
   validates :category, presence: true
+
+  CATEGORIES = %w[truc muche machin]
 end

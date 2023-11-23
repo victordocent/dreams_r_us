@@ -1,13 +1,14 @@
 
-<%=Dream.category.each do |category|%>
-<%= link_to dreams_path(category) do%>
-  <div>
-    <div>
+<%# <%=Dream.all.map(&:category).each do |category| %>
+<%# # Dream.all.map { |dream| dream.category } %>
+<%# <%= link_to dreams_path(category) do%>
+  <%# <div> %>
+    <%# <div>
       <i class="fa-regular fa-star"></i>
     </div>
     <div>
       <%=category%>
-    </div>
-  </div>
-<%end%>
-<%end%>
+    <%# </div>
+  <%# </div> %>
+<%# <%end%>
+<%# <%end%>
