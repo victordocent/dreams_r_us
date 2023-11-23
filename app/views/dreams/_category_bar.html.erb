@@ -1,23 +1,13 @@
-<div class="category_bar">
-  <div class="container">
 
-
-     <div class="more">
-      <%=Dream.category.each do |category|%>
-      <%= link_to dreams_path(category) do%>
-        <div class="categories+icon">
-          <div class="icon">
-            <i class="fa-regular fa-star"></i>
-          </div>
-          <div class ="label">
-            <%=category%>
-          </div>
-        </div>
-      <%end%>
-      <button>
-      </button>
+<%=Dream.category.each do |category|%>
+<%= link_to dreams_path(category) do%>
+  <div>
+    <div>
+      <i class="fa-regular fa-star"></i>
     </div>
-    <div class = "filtres" btn.....>
+    <div>
+      <%=category%>
     </div>
   </div>
-</div>
+<%end%>
+<%end%>

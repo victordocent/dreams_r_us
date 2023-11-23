@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   # add dashboard
 
   get "dashboard", to: "pages#dashboard"
+
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

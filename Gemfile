@@ -6,6 +6,8 @@ gem "dotenv-rails"
 gem "cloudinary"
 gem "elasticsearch"
 gem "searchkick"
+gem "sidekiq", "< 7"
+gem "sidekiq-failures", "~> 1.0"
 
 gem "faker"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
