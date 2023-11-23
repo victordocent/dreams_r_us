@@ -39,6 +39,7 @@ class BookingsController < ApplicationController
     date_end= dates[1]
     params= {start_date: date_start, end_date: date_end}
     @booking.update(params)
+    redirect_to dashboard_path
   end
 
 
