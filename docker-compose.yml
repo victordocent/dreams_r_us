@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: your-rails-app:latest
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    volumes:
+      - .:/rails
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: dreams_r_us_development # Replace with your actual database name
+      POSTGRES_USER: username # Replace with your actual database user
+      POSTGRES_PASSWORD: my_password # Replace with your actual database password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
