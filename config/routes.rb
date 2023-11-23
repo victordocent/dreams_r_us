@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :dreams, except: [:index] do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[new create edit update show]
   end
-  resources :bookings, only: %i[index destroy show edit update]
+  resources :bookings, only: %i[index destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"

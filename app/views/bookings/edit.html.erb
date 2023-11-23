@@ -1,2 +1,14 @@
-<h1>Here you can edit</h1>
-<h2>Not yet...</h2>
+<h1>Edit your booking</h1>
+
+<div class="container">
+  <h1>Fill this new booking for dream <%= @dream.title %></h1>
+
+    <%= simple_form_for [@dream, @booking] do |f| %>
+    <%= f.input :start_date,
+            as: :string,
+            label: "Choose a date",
+            input_html: { data: { controller: "datepicker" } } %>
+    <%= f.button :submit %>
+  <% end %>
+
+</div>

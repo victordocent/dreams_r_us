@@ -9,7 +9,7 @@
   <h2 class="mt-4">You have booked your dream from <%= start_date_formatted %> to <%= end_date_formatted %></h2>
 
   <div class="mt-4">
-    <%= link_to "Edit your booking", edit_booking_path(@booking), class: "btn btn-primary mr-2" %>
+    <%= link_to "Edit your booking", edit_dream_booking_path(@dream, @booking), class: "btn btn-primary mr-2" %>
     <%= link_to "Delete", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
   </div>
 </div>

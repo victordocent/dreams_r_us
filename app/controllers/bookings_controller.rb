@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :find, only: %i[show destroy]
-  before_action :find_dream, only: %i[new create]
+  before_action :find, only: %i[show destroy edit update]
+  before_action :find_dream, only: %i[new create edit update show]
 
   def index
     user = current_user.id
@@ -24,11 +24,23 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.dream = @dream
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to dream_booking_path(@dream, @booking)
     else
       render :new
     end
   end
+
+  def edit
+  end
+
+  def update
+    dates = booking_params[:start_date].split(" to ")
+    date_start= dates[0]
+    date_end= dates[1]
+    params= {start_date: date_start, end_date: date_end}
+    @booking.update(params)
+  end
+
 
   def destroy
     @booking.destroy
