@@ -1,3 +1,7 @@
 <div class="container">
+  <h2>Your dreams!</h2>
   <%= render partial: "shared/dashboard_dream_table", locals: {dreams: @dreams} %>
+
+  <h2>Your bookings!</h2>
+  <%= render partial: "shared/dashboard_booking_table", locals: {bookings: @bookings} %>
 </div>
