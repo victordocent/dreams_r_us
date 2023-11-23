@@ -17,8 +17,8 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: my_database # Replace with your actual database name
-      POSTGRES_USER: my_user # Replace with your actual database user
+      POSTGRES_DB: dreams_r_us_development # Replace with your actual database name
+      POSTGRES_USER: username # Replace with your actual database user
       POSTGRES_PASSWORD: my_password # Replace with your actual database password
     volumes:
       - postgres_data:/var/lib/postgresql/data
