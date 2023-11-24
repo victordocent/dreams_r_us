@@ -7,6 +7,7 @@
         <th scope="col">Category</th>
         <th scope="col">Start date</th>
         <th scope="col">End date</th>
+        <th scope="col">Booking status</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
             <td><%= booking.dream.category %></td>
             <td><%= booking.start_date&.strftime('%B %e, %Y') %></td>
             <td><%= booking.end_date&.strftime('%B %e, %Y') %></td>
+            <td><%= booking&.status %></td>
           </tr>
         <% else %>
           <tr class="table-danger">
@@ -28,6 +30,7 @@
             <td><%= booking.dream.category %></td>
             <td><%= booking.start_date.strftime('%B %e, %Y') %></td>
             <td><%= booking.end_date.strftime('%B %e, %Y') %></td>
+            <td><%= booking&.status %></td>
           </tr>
         <% end %>
       <% end %>
