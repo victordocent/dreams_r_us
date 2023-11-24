@@ -3,11 +3,11 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Dream name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Category</th>
-        <th scope="col">Description</th>
+        <th scope="col">Mail of the requester</th>
+        <th scope="col">Total price</th>
         <th scope="col">Start date</th>
         <th scope="col">End date</th>
+        <th scope="col">Status of the booking</th>
       </tr>
     </thead>
     <tbody>
@@ -16,15 +16,22 @@
         <% if index.even?  %>
           <tr class="table-warning">
             <th scope="row"><%= index + 1 %></th>
-            <td><%= booking %></td>
+            <td><%= booking.dream.title %></td>
+            <td><%= booking.user.email %></td>
+            <td><%= number_with_delimiter(((booking.end_date&.to_datetime&.-(booking.start_date&.to_datetime)).to_i * booking.dream.price).round(), delimiter: ' ') %>€</td>
+            <td><%= booking.start_date&.strftime('%B %e, %Y') %></td>
+            <td><%= booking.end_date&.strftime('%B %e, %Y') %></td>
+            <td>STATUS OF THE BOOKING</td>
           </tr>
         <% else %>
           <tr class="table-danger">
             <th scope="row"><%= index + 1 %></th>
-            <td><%= number_with_delimiter(dream.price.to_i, delimiter: ' ') %>€</td>
-            <td><%= dream.category %></td>
-            <td><%= dream.description %></td>
-            <td><%= dream.bookings %></td>
+            <td><%= booking.dream.title %></td>
+            <td><%= booking.user.email %></td>
+            <td><%= number_with_delimiter(((booking.end_date&.to_datetime&.-(booking.start_date&.to_datetime)).to_i * booking.dream.price).round(), delimiter: ' ') %>€</td>
+            <td><%= booking.start_date&.strftime('%B %e, %Y') %></td>
+            <td><%= booking.end_date&.strftime('%B %e, %Y') %></td>
+            <td>STATUS OF THE BOOKING</td>
           </tr>
         <% end %>
       <% end %>
