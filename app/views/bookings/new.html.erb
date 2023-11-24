@@ -2,6 +2,12 @@
   <h1>Create a new booking</h1>
   <h2>Fill this new booking for dream <%= @dream.title %></h2>
 
+    <% if flash[:error].present? %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:error] %>
+    </div>
+    <% end %>
+
     <%= simple_form_for [@dream, @booking] do |f| %>
     <%= f.input :start_date,
             as: :string,
