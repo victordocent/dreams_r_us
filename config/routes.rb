@@ -13,17 +13,23 @@ Rails.application.routes.draw do
     end
   end
 
+  # add dashboard
+
+  get "dashboard", to: "pages#dashboard"
+
   resources :dreams, except: [:index] do
-    resources :bookings, only: %i[new create edit update show]
+    resources :bookings, only: %i[new create edit update show] do
+      member do
+        get 'accept_booking', as: :accept_booking
+        get 'refuse_booking', as: :refuse_booking
+      end
+    end
   end
+
   resources :bookings, only: %i[index destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"
-
-  # add dashboard
-
-  get "dashboard", to: "pages#dashboard"
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do

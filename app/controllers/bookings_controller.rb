@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find, only: %i[show destroy edit update]
+  before_action :find, only: %i[show destroy edit update accept_booking refuse_booking]
   before_action :find_dream, only: %i[new create edit update show]
 
   def index
@@ -51,6 +51,16 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to root_path, status: :see_other
+  end
+
+  def accept_booking
+    @booking.update(status: 1)
+    redirect_to dashboard_path
+  end
+
+  def refuse_booking
+    @booking.update(status: 2)
+    redirect_to dashboard_path
   end
 
   private
