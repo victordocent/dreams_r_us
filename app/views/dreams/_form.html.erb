@@ -4,6 +4,6 @@
     <%= f.input :availability %>
     <%= f.input :price %>
     <%= f.input :description %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: Dream::CATEGORIES %>
     <%= f.button :submit %>
   <% end %>
