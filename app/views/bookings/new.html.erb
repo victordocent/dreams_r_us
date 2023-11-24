@@ -1,7 +1,6 @@
-<h1>Create a new booking</h1>
-
 <div class="container">
-  <h1>Fill this new booking for dream <%= @dream.title %></h1>
+  <h1>Create a new booking</h1>
+  <h2>Fill this new booking for dream <%= @dream.title %></h2>
 
     <%= simple_form_for [@dream, @booking] do |f| %>
     <%= f.input :start_date,
