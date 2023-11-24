@@ -1,4 +1,33 @@
 .custom-navbar {
-  background-color : var(--purple) !important;
+  background-color: var(--purple) !important;
   height: 104px;
+}
+
+.left-element {
+  display: flex;
+  align-items: center;
+}
+
+.left-element .new_entry {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.right-element {
+  display: flex;
+  align-items: center;
+}
+
+.right-element .navbar-brand {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.right-element .name {
+  flex: 1; /* This allows the name to take up all available space */
+}
+
+.right-element .name p {
+  margin: 10px; /* Remove default margin */
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  color: var(--white);
 }
