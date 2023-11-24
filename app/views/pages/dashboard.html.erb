@@ -4,12 +4,12 @@
   </div>
 
 <div class="container">
-  <div class="parent">
-    <div class="div1">
+  <div class="parent-dash">
+    <div >
       <h2>Dreams you created !</h2>
       <%= render partial: "shared/dashboard_dream_table", locals: {dreams: @dreams} %>
     </div>
-    <div class="div2">
+    <div >
       <h2>Bookings you made !</h2>
       <%= render partial: "shared/dashboard_booking_sent_table", locals: {bookings: @bookings} %>
     </div>
