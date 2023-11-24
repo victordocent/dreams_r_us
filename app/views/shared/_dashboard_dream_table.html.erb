@@ -10,7 +10,7 @@
     </thead>
     <tbody>
     <% @dreams.each_with_index do |dream, index| %>
-        <% if index % 2 === 0  %>
+        <% if index.even?  %>
           <tr class="table-warning">
             <th scope="row"><%= index + 1 %></th>
             <td><%= link_to dream.title, dream_path(dream), class: "hover-link-1" %></td>
