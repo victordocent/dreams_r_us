@@ -22,18 +22,24 @@
           <em>This dream has already been booked <strong><%= @dream.bookings.count %></strong> !</em>
         <% end %>
       </p>
+    <% if user_signed_in? && current_user == @dream.user %>
       <%= link_to "Delete", dream_path(@dream), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, id: "delete-button", class: "btn btn-primary text-decoration-none"%>
+      <%= link_to "Edit", edit_dream_path(@dream), data: { turbo_action: "replace", turbo_frame: "dream-form" }, id: "delete-button", class: "btn btn-primary text-decoration-none" %>
+    <% end %>
     </div>
-    <div id="price-info" class="col-6 mt-3 mx-auto text-center">
-      <% if @dream.availability %>
-        <div class="mt-5">
-          The price of this dream is <%= number_with_delimiter(@dream.price.round(), delimiter: ' ') %>€ per day of booking ! <br><br>
-          This dream is currently available ! <br><br>
-        </div>
-        <%= link_to "Book it!", new_dream_booking_path(@dream), id: "booking-button", class: "btn text-decoration-none" %>
-      <% else %>
-        Unfortunatelly, we are unable to offer bookings for this dream 😞...
-      <% end %>
-    </div>
+    <% unless user_signed_in? && current_user == @dream.user %>
+      <div id="price-info" class="col-6 mt-3 mx-auto text-center">
+        <% if @dream.availability %>
+          <div class="mt-5">
+            The price of this dream is <%= number_with_delimiter(@dream.price.round(), delimiter: ' ') %>€ per day of booking ! <br><br>
+            This dream is currently available ! <br><br>
+          </div>
+          <%= link_to "Book it!", new_dream_booking_path(@dream), id: "booking-button", class: "btn text-decoration-none" %>
+        <% else %>
+          Unfortunatelly, we are unable to offer bookings for this dream 😞...
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>
