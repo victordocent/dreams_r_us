@@ -13,5 +13,5 @@ class Dream < ApplicationRecord
   validates :category, presence: true
 
   CATEGORIES = %w[Nightmares Daydream Lucid Falling Recurring Initiative Prophetic Astral Travel Black Awakening Tjukurrpa]
-  ICONS = ["fa-regular fa-star", "fa-solid fa-eye", "fa-regular fa-droplet", "fa-solid fa-cloud-moon", "fa-solid fa-moon", "fa-solid fa-anchor", "fa-solid fa-volcano"]
+  ICONS = ["fa-regular fa-star", "fa-solid fa-eye", "fa-solid fa-water", "fa-solid fa-fish", "fa-solid fa-cloud-moon", "fa-solid fa-moon", "fa-solid fa-anchor", "fa-solid fa-volcano"]
 end
