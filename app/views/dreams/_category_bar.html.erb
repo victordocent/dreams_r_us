@@ -12,3 +12,26 @@
   <%# </div> %>
 <%# <%end%>
 <%# <%end%>
+
+
+<div class="container">
+  <div class="inner-flex">
+    <%# <div class="row"> %>
+      <%Dream::CATEGORIES.each do |category| %>
+      <%= link_to dreams_path(query: category) do%>
+        <div class="flex__item">
+          <div>
+
+            <i class="<%=Dream::ICONS.sample%>"></i>
+          </div>
+          <div>
+            <p class="text-decoration-none"><%=category%></p>
+          </div>
+        </div>
+      <%end%>
+      <%end%>
+    </div>
+  <%# </div> %>
+</div>
+
+<%# <%=Dream::ICONS.sample(1)%>
