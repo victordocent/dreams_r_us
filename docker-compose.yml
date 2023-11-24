@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/rails
     ports:
-      - "3000:3000"
+      - "4000:3000"
     depends_on:
       - db
 
@@ -18,10 +18,16 @@ services:
     image: postgres:latest
     environment:
       POSTGRES_DB: dreams_r_us_development # Replace with your actual database name
-      POSTGRES_USER: username # Replace with your actual database user
-      POSTGRES_PASSWORD: my_password # Replace with your actual database password
+      POSTGRES_USER: dreams_r_us # Replace with your actual database user
+      POSTGRES_PASSWORD: password # Replace with your actual database password
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    command: redis-server /etc/redis/redis.conf   # Specify the custom configuration file
+    volumes:
+      - ./redis.conf:/etc/redis/redis.conf        # Mount the custom configuration
 
 volumes:
   postgres_data:

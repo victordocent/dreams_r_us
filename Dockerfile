@@ -13,12 +13,16 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
-# Throw-away build stage to reduce size of final image
+# Throw-away build stage to reduce the size of the final image
 FROM base as build
 
-# Install packages needed to build gems
+# Install packages needed to build gems, Node.js for JavaScript runtime, and other dependencies
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
+    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config curl
+
+# Install Node.js from source
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get install -y nodejs
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -60,6 +64,9 @@ RUN useradd rails --create-home --shell /bin/bash && \
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Add custom Redis configuration
+COPY redis.conf /etc/redis/redis.conf
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
