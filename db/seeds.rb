@@ -14,32 +14,27 @@ require "open-uri"
 Dream.destroy_all
 User.destroy_all
 
-user1 = User.create!(
-  email: "wagon@gmail.com",
-  password: "LeWaWa01"
+nicolas = User.create!(
+  email: "nicolas@gmail.com",
+  password: "nicolas"
 )
 
-user2 = User.create!(
-  email: "wawa@gmail.com",
-  password: "LeWaWa02"
+anahita = User.create!(
+  email: "anahita@gmail.com",
+  password: "anahita"
 )
 
-users = [user1, user2]
-
-10.times do
-
-  dream = Dream.new(
-    title: Faker::JapaneseMedia::CowboyBebop.episode,
-    price: rand(1..1_000_000),
+dream = Dream.new(
+    title: "Balck Friday",
+    price: 1000,
     availability: true,
     description: Faker::JapaneseMedia::CowboyBebop.quote,
-    category: Faker::University.name,
-    user: users.sample
+    category: "Nightmare",
+    user: anahita
   )
-
-  5.times do
-    file = URI.open(Faker::LoremFlickr.image(search_terms: [Faker::JapaneseMedia::CowboyBebop.episode].map { |item| item.gsub(' ', '_') }))
+picture_urls = []
+picture_urls.each do |url|
+    file = URI.open(url)
     dream.photos.attach(io: file, filename: "#{Faker::JapaneseMedia::CowboyBebop.episode}.png", content_type: "image/png")
     dream.save
-  end
 end
