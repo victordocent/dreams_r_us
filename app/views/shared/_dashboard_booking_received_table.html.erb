@@ -21,7 +21,16 @@
             <td><%= number_with_delimiter(((booking.end_date&.to_datetime&.-(booking.start_date&.to_datetime)).to_i * booking.dream.price).round(), delimiter: ' ') %>€</td>
             <td><%= booking.start_date&.strftime('%B %e, %Y') %></td>
             <td><%= booking.end_date&.strftime('%B %e, %Y') %></td>
-            <td>STATUS OF THE BOOKING</td>
+            <td>
+              <% if booking.pending? %>
+                <%= link_to "Accept the booking", accept_booking_dream_booking_path(booking.dream, booking), class: "btn btn-success" %>
+                <%= link_to "Refuse the booking", refuse_booking_dream_booking_path(booking.dream, booking), class: "btn btn-danger" %>
+              <% elsif booking.accepted? %>
+                Accepted
+              <% else  %>
+                Refused
+              <% end  %>
+            </td>
           </tr>
         <% else %>
           <tr class="table-danger">
@@ -31,7 +40,16 @@
             <td><%= number_with_delimiter(((booking.end_date&.to_datetime&.-(booking.start_date&.to_datetime)).to_i * booking.dream.price).round(), delimiter: ' ') %>€</td>
             <td><%= booking.start_date&.strftime('%B %e, %Y') %></td>
             <td><%= booking.end_date&.strftime('%B %e, %Y') %></td>
-            <td>STATUS OF THE BOOKING</td>
+            <td>
+              <% if booking.pending? %>
+                <%= link_to "Accept the booking", accept_booking_dream_booking_path(booking.dream, booking), class: "btn btn-success" %>
+                <%= link_to "Refuse the booking", refuse_booking_dream_booking_path(booking.dream, booking), class: "btn btn-danger" %>
+              <% elsif booking.accepted? %>
+                Accepted
+              <% else  %>
+                Refused
+              <% end  %>
+            </td>
           </tr>
         <% end %>
       <% end %>

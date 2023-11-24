@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find, only: %i[show destroy edit update]
+  before_action :find, only: %i[show destroy edit update accept_booking refuse_booking]
   before_action :find_dream, only: %i[new create edit update show]
 
   def index
@@ -26,7 +26,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dream_booking_path(@dream, @booking)
     else
-      render :new
+      flash[:error] = @booking.errors.full_messages.to_sentence
+      redirect_to new_dream_booking_path(@booking.dream)
     end
   end
 
@@ -38,14 +39,28 @@ class BookingsController < ApplicationController
     date_start= dates[0]
     date_end= dates[1]
     params= {start_date: date_start, end_date: date_end}
-    @booking.update(params)
-    redirect_to dashboard_path
+    if @booking.update(params)
+      redirect_to dashboard_path
+    else
+      flash[:error] = @booking.errors.full_messages.to_sentence
+      redirect_to edit_dream_booking_path(@booking.dream, @booking)
+    end
   end
 
 
   def destroy
     @booking.destroy
     redirect_to root_path, status: :see_other
+  end
+
+  def accept_booking
+    @booking.update(status: 1)
+    redirect_to dashboard_path
+  end
+
+  def refuse_booking
+    @booking.update(status: 2)
+    redirect_to dashboard_path
   end
 
   private
