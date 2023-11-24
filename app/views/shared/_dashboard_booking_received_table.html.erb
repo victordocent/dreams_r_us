@@ -13,7 +13,7 @@
     <tbody>
     <% @dreams.each do |dream| %>
       <% dream.bookings.each_with_index do |booking, index| %>
-        <% if index % 2 === 0  %>
+        <% if index.even?  %>
           <tr class="table-warning">
             <th scope="row"><%= index + 1 %></th>
             <td><%= booking %></td>
