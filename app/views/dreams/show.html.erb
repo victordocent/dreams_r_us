@@ -27,7 +27,7 @@
     <div id="price-info" class="col-6 mt-3 mx-auto text-center">
       <% if @dream.availability %>
         <div class="mt-5">
-          The price of this dream is <%= @dream.price %>€ per day of booking ! <br><br>
+          The price of this dream is <%= number_with_delimiter(@dream.price.round(), delimiter: ' ') %>€ per day of booking ! <br><br>
           This dream is currently available ! <br><br>
         </div>
         <%= link_to "Book it!", new_dream_booking_path(@dream), id: "booking-button", class: "btn text-decoration-none" %>
